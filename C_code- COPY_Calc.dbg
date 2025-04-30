@@ -1,0 +1,2371 @@
+Created by PLY (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement_list
+Rule 1     statement -> NAME EQUALS expression SEMICOLON
+Rule 2     expression -> STRING
+Rule 3     expression -> LBRACKET list_items RBRACKET
+Rule 4     list_items -> expression COMMA list_items
+Rule 5     list_items -> expression
+Rule 6     expression -> expression LBRACKET expression RBRACKET
+Rule 7     empty -> <empty>
+Rule 8     opt_expression -> expression
+Rule 9     opt_expression -> empty
+Rule 10    expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET
+Rule 11    statement -> expression SEMICOLON
+Rule 12    statement -> LBRACE statement_list RBRACE
+Rule 13    block -> LBRACE statement_list RBRACE
+Rule 14    expression -> READINT LPAREN RPAREN
+Rule 15    statement -> IF LPAREN expression RPAREN statement
+Rule 16    statement -> IF LPAREN expression RPAREN statement ELSE statement
+Rule 17    statement -> IF LPAREN expression RPAREN block
+Rule 18    statement -> IF LPAREN expression RPAREN block ELSE block
+Rule 19    statement -> WHILE LPAREN expression RPAREN statement
+Rule 20    statement_list -> statement statement_list
+Rule 21    statement_list -> statement
+Rule 22    statement -> PRINT LPAREN expression RPAREN SEMICOLON
+Rule 23    expression -> expression LESSTHAN expression
+Rule 24    expression -> expression GREATERTHAN expression
+Rule 25    expression -> expression EQUALTO expression
+Rule 26    expression -> expression OROR expression
+Rule 27    expression -> expression PLUS expression
+Rule 28    expression -> expression MINUS expression
+Rule 29    expression -> expression TIMES expression
+Rule 30    expression -> expression DIVIDE expression
+Rule 31    expression -> expression EXP expression
+Rule 32    expression -> MINUS expression
+Rule 33    expression -> LPAREN expression RPAREN
+Rule 34    expression -> NUMBER
+Rule 35    expression -> NAME
+
+Terminals, with rules where they appear
+
+COLON                : 10
+COMMA                : 4
+DIVIDE               : 30
+ELSE                 : 16 18
+EQUALS               : 1
+EQUALTO              : 25
+EXP                  : 31
+GREATERTHAN          : 24
+IF                   : 15 16 17 18
+LBRACE               : 12 13
+LBRACKET             : 3 6 10
+LESSTHAN             : 23
+LPAREN               : 14 15 16 17 18 19 22 33
+MINUS                : 28 32
+NAME                 : 1 35
+NUMBER               : 34
+OROR                 : 26
+PLUS                 : 27
+PRINT                : 22
+RBRACE               : 12 13
+RBRACKET             : 3 6 10
+READINT              : 14
+RPAREN               : 14 15 16 17 18 19 22 33
+SEMICOLON            : 1 11 22
+STRING               : 2
+TIMES                : 29
+WHILE                : 19
+error                : 
+
+Nonterminals, with rules where they appear
+
+block                : 17 18 18
+empty                : 9
+expression           : 1 4 5 6 6 8 10 11 15 16 17 18 19 22 23 23 24 24 25 25 26 26 27 27 28 28 29 29 30 30 31 31 32 33
+list_items           : 3 4
+opt_expression       : 10 10
+statement            : 15 16 16 19 20 21
+statement_list       : 12 13 20 0
+
+
+state 0
+
+    (0) S' -> . statement_list
+    (20) statement_list -> . statement statement_list
+    (21) statement_list -> . statement
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    statement_list                 shift and go to state 1
+    statement                      shift and go to state 2
+    expression                     shift and go to state 4
+
+state 1
+
+    (0) S' -> statement_list .
+
+
+
+state 2
+
+    (20) statement_list -> statement . statement_list
+    (21) statement_list -> statement .
+    (20) statement_list -> . statement statement_list
+    (21) statement_list -> . statement
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    $end            reduce using rule 21 (statement_list -> statement .)
+    RBRACE          reduce using rule 21 (statement_list -> statement .)
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    statement                      shift and go to state 2
+    statement_list                 shift and go to state 15
+    expression                     shift and go to state 4
+
+state 3
+
+    (1) statement -> NAME . EQUALS expression SEMICOLON
+    (35) expression -> NAME .
+
+    EQUALS          shift and go to state 16
+    SEMICOLON       reduce using rule 35 (expression -> NAME .)
+    LBRACKET        reduce using rule 35 (expression -> NAME .)
+    LESSTHAN        reduce using rule 35 (expression -> NAME .)
+    GREATERTHAN     reduce using rule 35 (expression -> NAME .)
+    EQUALTO         reduce using rule 35 (expression -> NAME .)
+    OROR            reduce using rule 35 (expression -> NAME .)
+    PLUS            reduce using rule 35 (expression -> NAME .)
+    MINUS           reduce using rule 35 (expression -> NAME .)
+    TIMES           reduce using rule 35 (expression -> NAME .)
+    DIVIDE          reduce using rule 35 (expression -> NAME .)
+    EXP             reduce using rule 35 (expression -> NAME .)
+
+
+state 4
+
+    (11) statement -> expression . SEMICOLON
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       shift and go to state 17
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 5
+
+    (12) statement -> LBRACE . statement_list RBRACE
+    (20) statement_list -> . statement statement_list
+    (21) statement_list -> . statement
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    statement_list                 shift and go to state 28
+    statement                      shift and go to state 2
+    expression                     shift and go to state 4
+
+state 6
+
+    (15) statement -> IF . LPAREN expression RPAREN statement
+    (16) statement -> IF . LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> IF . LPAREN expression RPAREN block
+    (18) statement -> IF . LPAREN expression RPAREN block ELSE block
+
+    LPAREN          shift and go to state 29
+
+
+state 7
+
+    (33) expression -> LPAREN . expression RPAREN
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 30
+
+state 8
+
+    (19) statement -> WHILE . LPAREN expression RPAREN statement
+
+    LPAREN          shift and go to state 32
+
+
+state 9
+
+    (22) statement -> PRINT . LPAREN expression RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 33
+
+
+state 10
+
+    (2) expression -> STRING .
+
+    SEMICOLON       reduce using rule 2 (expression -> STRING .)
+    LBRACKET        reduce using rule 2 (expression -> STRING .)
+    LESSTHAN        reduce using rule 2 (expression -> STRING .)
+    GREATERTHAN     reduce using rule 2 (expression -> STRING .)
+    EQUALTO         reduce using rule 2 (expression -> STRING .)
+    OROR            reduce using rule 2 (expression -> STRING .)
+    PLUS            reduce using rule 2 (expression -> STRING .)
+    MINUS           reduce using rule 2 (expression -> STRING .)
+    TIMES           reduce using rule 2 (expression -> STRING .)
+    DIVIDE          reduce using rule 2 (expression -> STRING .)
+    EXP             reduce using rule 2 (expression -> STRING .)
+    RPAREN          reduce using rule 2 (expression -> STRING .)
+    COMMA           reduce using rule 2 (expression -> STRING .)
+    RBRACKET        reduce using rule 2 (expression -> STRING .)
+    COLON           reduce using rule 2 (expression -> STRING .)
+
+
+state 11
+
+    (3) expression -> LBRACKET . list_items RBRACKET
+    (4) list_items -> . expression COMMA list_items
+    (5) list_items -> . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    list_items                     shift and go to state 34
+    expression                     shift and go to state 35
+
+state 12
+
+    (14) expression -> READINT . LPAREN RPAREN
+
+    LPAREN          shift and go to state 36
+
+
+state 13
+
+    (32) expression -> MINUS . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 37
+
+state 14
+
+    (34) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 34 (expression -> NUMBER .)
+    LBRACKET        reduce using rule 34 (expression -> NUMBER .)
+    LESSTHAN        reduce using rule 34 (expression -> NUMBER .)
+    GREATERTHAN     reduce using rule 34 (expression -> NUMBER .)
+    EQUALTO         reduce using rule 34 (expression -> NUMBER .)
+    OROR            reduce using rule 34 (expression -> NUMBER .)
+    PLUS            reduce using rule 34 (expression -> NUMBER .)
+    MINUS           reduce using rule 34 (expression -> NUMBER .)
+    TIMES           reduce using rule 34 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 34 (expression -> NUMBER .)
+    EXP             reduce using rule 34 (expression -> NUMBER .)
+    RPAREN          reduce using rule 34 (expression -> NUMBER .)
+    COMMA           reduce using rule 34 (expression -> NUMBER .)
+    RBRACKET        reduce using rule 34 (expression -> NUMBER .)
+    COLON           reduce using rule 34 (expression -> NUMBER .)
+
+
+state 15
+
+    (20) statement_list -> statement statement_list .
+
+    $end            reduce using rule 20 (statement_list -> statement statement_list .)
+    RBRACE          reduce using rule 20 (statement_list -> statement statement_list .)
+
+
+state 16
+
+    (1) statement -> NAME EQUALS . expression SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 38
+
+state 17
+
+    (11) statement -> expression SEMICOLON .
+
+    NAME            reduce using rule 11 (statement -> expression SEMICOLON .)
+    LBRACE          reduce using rule 11 (statement -> expression SEMICOLON .)
+    IF              reduce using rule 11 (statement -> expression SEMICOLON .)
+    WHILE           reduce using rule 11 (statement -> expression SEMICOLON .)
+    PRINT           reduce using rule 11 (statement -> expression SEMICOLON .)
+    STRING          reduce using rule 11 (statement -> expression SEMICOLON .)
+    LBRACKET        reduce using rule 11 (statement -> expression SEMICOLON .)
+    READINT         reduce using rule 11 (statement -> expression SEMICOLON .)
+    MINUS           reduce using rule 11 (statement -> expression SEMICOLON .)
+    LPAREN          reduce using rule 11 (statement -> expression SEMICOLON .)
+    NUMBER          reduce using rule 11 (statement -> expression SEMICOLON .)
+    $end            reduce using rule 11 (statement -> expression SEMICOLON .)
+    RBRACE          reduce using rule 11 (statement -> expression SEMICOLON .)
+    ELSE            reduce using rule 11 (statement -> expression SEMICOLON .)
+
+
+state 18
+
+    (6) expression -> expression LBRACKET . expression RBRACKET
+    (10) expression -> expression LBRACKET . opt_expression COLON opt_expression RBRACKET
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+    (8) opt_expression -> . expression
+    (9) opt_expression -> . empty
+    (7) empty -> .
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+    COLON           reduce using rule 7 (empty -> .)
+
+    expression                     shift and go to state 39
+    opt_expression                 shift and go to state 40
+    empty                          shift and go to state 41
+
+state 19
+
+    (23) expression -> expression LESSTHAN . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 42
+
+state 20
+
+    (24) expression -> expression GREATERTHAN . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 43
+
+state 21
+
+    (25) expression -> expression EQUALTO . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 44
+
+state 22
+
+    (26) expression -> expression OROR . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 45
+
+state 23
+
+    (27) expression -> expression PLUS . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 46
+
+state 24
+
+    (28) expression -> expression MINUS . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 47
+
+state 25
+
+    (29) expression -> expression TIMES . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 48
+
+state 26
+
+    (30) expression -> expression DIVIDE . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 49
+
+state 27
+
+    (31) expression -> expression EXP . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 50
+
+state 28
+
+    (12) statement -> LBRACE statement_list . RBRACE
+
+    RBRACE          shift and go to state 51
+
+
+state 29
+
+    (15) statement -> IF LPAREN . expression RPAREN statement
+    (16) statement -> IF LPAREN . expression RPAREN statement ELSE statement
+    (17) statement -> IF LPAREN . expression RPAREN block
+    (18) statement -> IF LPAREN . expression RPAREN block ELSE block
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 52
+
+state 30
+
+    (33) expression -> LPAREN expression . RPAREN
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 53
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 31
+
+    (35) expression -> NAME .
+
+    RPAREN          reduce using rule 35 (expression -> NAME .)
+    LBRACKET        reduce using rule 35 (expression -> NAME .)
+    LESSTHAN        reduce using rule 35 (expression -> NAME .)
+    GREATERTHAN     reduce using rule 35 (expression -> NAME .)
+    EQUALTO         reduce using rule 35 (expression -> NAME .)
+    OROR            reduce using rule 35 (expression -> NAME .)
+    PLUS            reduce using rule 35 (expression -> NAME .)
+    MINUS           reduce using rule 35 (expression -> NAME .)
+    TIMES           reduce using rule 35 (expression -> NAME .)
+    DIVIDE          reduce using rule 35 (expression -> NAME .)
+    EXP             reduce using rule 35 (expression -> NAME .)
+    COMMA           reduce using rule 35 (expression -> NAME .)
+    RBRACKET        reduce using rule 35 (expression -> NAME .)
+    SEMICOLON       reduce using rule 35 (expression -> NAME .)
+    COLON           reduce using rule 35 (expression -> NAME .)
+
+
+state 32
+
+    (19) statement -> WHILE LPAREN . expression RPAREN statement
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 54
+
+state 33
+
+    (22) statement -> PRINT LPAREN . expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 55
+
+state 34
+
+    (3) expression -> LBRACKET list_items . RBRACKET
+
+    RBRACKET        shift and go to state 56
+
+
+state 35
+
+    (4) list_items -> expression . COMMA list_items
+    (5) list_items -> expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    COMMA           shift and go to state 57
+    RBRACKET        reduce using rule 5 (list_items -> expression .)
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 36
+
+    (14) expression -> READINT LPAREN . RPAREN
+
+    RPAREN          shift and go to state 58
+
+
+state 37
+
+    (32) expression -> MINUS expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 32 (expression -> MINUS expression .)
+    LBRACKET        reduce using rule 32 (expression -> MINUS expression .)
+    LESSTHAN        reduce using rule 32 (expression -> MINUS expression .)
+    GREATERTHAN     reduce using rule 32 (expression -> MINUS expression .)
+    EQUALTO         reduce using rule 32 (expression -> MINUS expression .)
+    OROR            reduce using rule 32 (expression -> MINUS expression .)
+    PLUS            reduce using rule 32 (expression -> MINUS expression .)
+    MINUS           reduce using rule 32 (expression -> MINUS expression .)
+    TIMES           reduce using rule 32 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 32 (expression -> MINUS expression .)
+    EXP             reduce using rule 32 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 32 (expression -> MINUS expression .)
+    COMMA           reduce using rule 32 (expression -> MINUS expression .)
+    RBRACKET        reduce using rule 32 (expression -> MINUS expression .)
+    COLON           reduce using rule 32 (expression -> MINUS expression .)
+
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 38
+
+    (1) statement -> NAME EQUALS expression . SEMICOLON
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       shift and go to state 59
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 39
+
+    (6) expression -> expression LBRACKET expression . RBRACKET
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+    (8) opt_expression -> expression .
+
+    RBRACKET        shift and go to state 60
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+    COLON           reduce using rule 8 (opt_expression -> expression .)
+
+
+state 40
+
+    (10) expression -> expression LBRACKET opt_expression . COLON opt_expression RBRACKET
+
+    COLON           shift and go to state 61
+
+
+state 41
+
+    (9) opt_expression -> empty .
+
+    COLON           reduce using rule 9 (opt_expression -> empty .)
+    RBRACKET        reduce using rule 9 (opt_expression -> empty .)
+
+
+state 42
+
+    (23) expression -> expression LESSTHAN expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    LBRACKET        reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    LESSTHAN        reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    GREATERTHAN     reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    EQUALTO         reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    OROR            reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    RPAREN          reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    COMMA           reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    RBRACKET        reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    COLON           reduce using rule 23 (expression -> expression LESSTHAN expression .)
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! PLUS            [ reduce using rule 23 (expression -> expression LESSTHAN expression .) ]
+  ! MINUS           [ reduce using rule 23 (expression -> expression LESSTHAN expression .) ]
+  ! TIMES           [ reduce using rule 23 (expression -> expression LESSTHAN expression .) ]
+  ! DIVIDE          [ reduce using rule 23 (expression -> expression LESSTHAN expression .) ]
+  ! EXP             [ reduce using rule 23 (expression -> expression LESSTHAN expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+
+
+state 43
+
+    (24) expression -> expression GREATERTHAN expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    LBRACKET        reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    LESSTHAN        reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    GREATERTHAN     reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    EQUALTO         reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    OROR            reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    RPAREN          reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    COMMA           reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    RBRACKET        reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    COLON           reduce using rule 24 (expression -> expression GREATERTHAN expression .)
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! PLUS            [ reduce using rule 24 (expression -> expression GREATERTHAN expression .) ]
+  ! MINUS           [ reduce using rule 24 (expression -> expression GREATERTHAN expression .) ]
+  ! TIMES           [ reduce using rule 24 (expression -> expression GREATERTHAN expression .) ]
+  ! DIVIDE          [ reduce using rule 24 (expression -> expression GREATERTHAN expression .) ]
+  ! EXP             [ reduce using rule 24 (expression -> expression GREATERTHAN expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+
+
+state 44
+
+    (25) expression -> expression EQUALTO expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 25 (expression -> expression EQUALTO expression .)
+    LBRACKET        reduce using rule 25 (expression -> expression EQUALTO expression .)
+    LESSTHAN        reduce using rule 25 (expression -> expression EQUALTO expression .)
+    GREATERTHAN     reduce using rule 25 (expression -> expression EQUALTO expression .)
+    EQUALTO         reduce using rule 25 (expression -> expression EQUALTO expression .)
+    OROR            reduce using rule 25 (expression -> expression EQUALTO expression .)
+    RPAREN          reduce using rule 25 (expression -> expression EQUALTO expression .)
+    COMMA           reduce using rule 25 (expression -> expression EQUALTO expression .)
+    RBRACKET        reduce using rule 25 (expression -> expression EQUALTO expression .)
+    COLON           reduce using rule 25 (expression -> expression EQUALTO expression .)
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! PLUS            [ reduce using rule 25 (expression -> expression EQUALTO expression .) ]
+  ! MINUS           [ reduce using rule 25 (expression -> expression EQUALTO expression .) ]
+  ! TIMES           [ reduce using rule 25 (expression -> expression EQUALTO expression .) ]
+  ! DIVIDE          [ reduce using rule 25 (expression -> expression EQUALTO expression .) ]
+  ! EXP             [ reduce using rule 25 (expression -> expression EQUALTO expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+
+
+state 45
+
+    (26) expression -> expression OROR expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 26 (expression -> expression OROR expression .)
+    LBRACKET        reduce using rule 26 (expression -> expression OROR expression .)
+    OROR            reduce using rule 26 (expression -> expression OROR expression .)
+    RPAREN          reduce using rule 26 (expression -> expression OROR expression .)
+    COMMA           reduce using rule 26 (expression -> expression OROR expression .)
+    RBRACKET        reduce using rule 26 (expression -> expression OROR expression .)
+    COLON           reduce using rule 26 (expression -> expression OROR expression .)
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! LESSTHAN        [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! GREATERTHAN     [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! EQUALTO         [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! PLUS            [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! MINUS           [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! TIMES           [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! DIVIDE          [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! EXP             [ reduce using rule 26 (expression -> expression OROR expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! OROR            [ shift and go to state 22 ]
+
+
+state 46
+
+    (27) expression -> expression PLUS expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 27 (expression -> expression PLUS expression .)
+    LBRACKET        reduce using rule 27 (expression -> expression PLUS expression .)
+    LESSTHAN        reduce using rule 27 (expression -> expression PLUS expression .)
+    GREATERTHAN     reduce using rule 27 (expression -> expression PLUS expression .)
+    EQUALTO         reduce using rule 27 (expression -> expression PLUS expression .)
+    OROR            reduce using rule 27 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 27 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 27 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 27 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 27 (expression -> expression PLUS expression .)
+    RBRACKET        reduce using rule 27 (expression -> expression PLUS expression .)
+    COLON           reduce using rule 27 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! TIMES           [ reduce using rule 27 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 27 (expression -> expression PLUS expression .) ]
+  ! EXP             [ reduce using rule 27 (expression -> expression PLUS expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+
+
+state 47
+
+    (28) expression -> expression MINUS expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 28 (expression -> expression MINUS expression .)
+    LBRACKET        reduce using rule 28 (expression -> expression MINUS expression .)
+    LESSTHAN        reduce using rule 28 (expression -> expression MINUS expression .)
+    GREATERTHAN     reduce using rule 28 (expression -> expression MINUS expression .)
+    EQUALTO         reduce using rule 28 (expression -> expression MINUS expression .)
+    OROR            reduce using rule 28 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 28 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 28 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 28 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 28 (expression -> expression MINUS expression .)
+    RBRACKET        reduce using rule 28 (expression -> expression MINUS expression .)
+    COLON           reduce using rule 28 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! TIMES           [ reduce using rule 28 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 28 (expression -> expression MINUS expression .) ]
+  ! EXP             [ reduce using rule 28 (expression -> expression MINUS expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+
+
+state 48
+
+    (29) expression -> expression TIMES expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 29 (expression -> expression TIMES expression .)
+    LBRACKET        reduce using rule 29 (expression -> expression TIMES expression .)
+    LESSTHAN        reduce using rule 29 (expression -> expression TIMES expression .)
+    GREATERTHAN     reduce using rule 29 (expression -> expression TIMES expression .)
+    EQUALTO         reduce using rule 29 (expression -> expression TIMES expression .)
+    OROR            reduce using rule 29 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 29 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 29 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 29 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 29 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 29 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 29 (expression -> expression TIMES expression .)
+    RBRACKET        reduce using rule 29 (expression -> expression TIMES expression .)
+    COLON           reduce using rule 29 (expression -> expression TIMES expression .)
+    EXP             shift and go to state 27
+
+  ! EXP             [ reduce using rule 29 (expression -> expression TIMES expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+
+
+state 49
+
+    (30) expression -> expression DIVIDE expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 30 (expression -> expression DIVIDE expression .)
+    LBRACKET        reduce using rule 30 (expression -> expression DIVIDE expression .)
+    LESSTHAN        reduce using rule 30 (expression -> expression DIVIDE expression .)
+    GREATERTHAN     reduce using rule 30 (expression -> expression DIVIDE expression .)
+    EQUALTO         reduce using rule 30 (expression -> expression DIVIDE expression .)
+    OROR            reduce using rule 30 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 30 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 30 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 30 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 30 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 30 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 30 (expression -> expression DIVIDE expression .)
+    RBRACKET        reduce using rule 30 (expression -> expression DIVIDE expression .)
+    COLON           reduce using rule 30 (expression -> expression DIVIDE expression .)
+    EXP             shift and go to state 27
+
+  ! EXP             [ reduce using rule 30 (expression -> expression DIVIDE expression .) ]
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+
+
+state 50
+
+    (31) expression -> expression EXP expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    SEMICOLON       reduce using rule 31 (expression -> expression EXP expression .)
+    LBRACKET        reduce using rule 31 (expression -> expression EXP expression .)
+    LESSTHAN        reduce using rule 31 (expression -> expression EXP expression .)
+    GREATERTHAN     reduce using rule 31 (expression -> expression EXP expression .)
+    EQUALTO         reduce using rule 31 (expression -> expression EXP expression .)
+    OROR            reduce using rule 31 (expression -> expression EXP expression .)
+    PLUS            reduce using rule 31 (expression -> expression EXP expression .)
+    MINUS           reduce using rule 31 (expression -> expression EXP expression .)
+    TIMES           reduce using rule 31 (expression -> expression EXP expression .)
+    DIVIDE          reduce using rule 31 (expression -> expression EXP expression .)
+    EXP             reduce using rule 31 (expression -> expression EXP expression .)
+    RPAREN          reduce using rule 31 (expression -> expression EXP expression .)
+    COMMA           reduce using rule 31 (expression -> expression EXP expression .)
+    RBRACKET        reduce using rule 31 (expression -> expression EXP expression .)
+    COLON           reduce using rule 31 (expression -> expression EXP expression .)
+
+  ! LBRACKET        [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 19 ]
+  ! GREATERTHAN     [ shift and go to state 20 ]
+  ! EQUALTO         [ shift and go to state 21 ]
+  ! OROR            [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 51
+
+    (12) statement -> LBRACE statement_list RBRACE .
+
+    NAME            reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    LBRACE          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    IF              reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    WHILE           reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    PRINT           reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    STRING          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    LBRACKET        reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    READINT         reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    MINUS           reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    LPAREN          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    NUMBER          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    $end            reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    ELSE            reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+
+
+state 52
+
+    (15) statement -> IF LPAREN expression . RPAREN statement
+    (16) statement -> IF LPAREN expression . RPAREN statement ELSE statement
+    (17) statement -> IF LPAREN expression . RPAREN block
+    (18) statement -> IF LPAREN expression . RPAREN block ELSE block
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 62
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 53
+
+    (33) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    LBRACKET        reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    LESSTHAN        reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    GREATERTHAN     reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    EQUALTO         reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    OROR            reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    EXP             reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    RBRACKET        reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+    COLON           reduce using rule 33 (expression -> LPAREN expression RPAREN .)
+
+
+state 54
+
+    (19) statement -> WHILE LPAREN expression . RPAREN statement
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 63
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 55
+
+    (22) statement -> PRINT LPAREN expression . RPAREN SEMICOLON
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 64
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 56
+
+    (3) expression -> LBRACKET list_items RBRACKET .
+
+    SEMICOLON       reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    LBRACKET        reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    LESSTHAN        reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    GREATERTHAN     reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    EQUALTO         reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    OROR            reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    PLUS            reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    MINUS           reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    TIMES           reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    DIVIDE          reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    EXP             reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    RPAREN          reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    COMMA           reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    RBRACKET        reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+    COLON           reduce using rule 3 (expression -> LBRACKET list_items RBRACKET .)
+
+
+state 57
+
+    (4) list_items -> expression COMMA . list_items
+    (4) list_items -> . expression COMMA list_items
+    (5) list_items -> . expression
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+
+    expression                     shift and go to state 35
+    list_items                     shift and go to state 65
+
+state 58
+
+    (14) expression -> READINT LPAREN RPAREN .
+
+    SEMICOLON       reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    LBRACKET        reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    LESSTHAN        reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    GREATERTHAN     reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    EQUALTO         reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    OROR            reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    PLUS            reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    MINUS           reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    TIMES           reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    DIVIDE          reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    EXP             reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    RPAREN          reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    COMMA           reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    RBRACKET        reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+    COLON           reduce using rule 14 (expression -> READINT LPAREN RPAREN .)
+
+
+state 59
+
+    (1) statement -> NAME EQUALS expression SEMICOLON .
+
+    NAME            reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    LBRACE          reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    IF              reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    WHILE           reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    PRINT           reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    STRING          reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    LBRACKET        reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    READINT         reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    MINUS           reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    LPAREN          reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    NUMBER          reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    $end            reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    RBRACE          reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+    ELSE            reduce using rule 1 (statement -> NAME EQUALS expression SEMICOLON .)
+
+
+state 60
+
+    (6) expression -> expression LBRACKET expression RBRACKET .
+
+    SEMICOLON       reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    LBRACKET        reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    LESSTHAN        reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    GREATERTHAN     reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    EQUALTO         reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    OROR            reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    PLUS            reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    MINUS           reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    TIMES           reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    DIVIDE          reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    EXP             reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    RPAREN          reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    COMMA           reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    RBRACKET        reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+    COLON           reduce using rule 6 (expression -> expression LBRACKET expression RBRACKET .)
+
+
+state 61
+
+    (10) expression -> expression LBRACKET opt_expression COLON . opt_expression RBRACKET
+    (8) opt_expression -> . expression
+    (9) opt_expression -> . empty
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+    (7) empty -> .
+
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+    NAME            shift and go to state 31
+    RBRACKET        reduce using rule 7 (empty -> .)
+
+    expression                     shift and go to state 66
+    opt_expression                 shift and go to state 67
+    empty                          shift and go to state 41
+
+state 62
+
+    (15) statement -> IF LPAREN expression RPAREN . statement
+    (16) statement -> IF LPAREN expression RPAREN . statement ELSE statement
+    (17) statement -> IF LPAREN expression RPAREN . block
+    (18) statement -> IF LPAREN expression RPAREN . block ELSE block
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (13) block -> . LBRACE statement_list RBRACE
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 70
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    expression                     shift and go to state 4
+    statement                      shift and go to state 68
+    block                          shift and go to state 69
+
+state 63
+
+    (19) statement -> WHILE LPAREN expression RPAREN . statement
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    expression                     shift and go to state 4
+    statement                      shift and go to state 71
+
+state 64
+
+    (22) statement -> PRINT LPAREN expression RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 72
+
+
+state 65
+
+    (4) list_items -> expression COMMA list_items .
+
+    RBRACKET        reduce using rule 4 (list_items -> expression COMMA list_items .)
+
+
+state 66
+
+    (8) opt_expression -> expression .
+    (6) expression -> expression . LBRACKET expression RBRACKET
+    (10) expression -> expression . LBRACKET opt_expression COLON opt_expression RBRACKET
+    (23) expression -> expression . LESSTHAN expression
+    (24) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . EQUALTO expression
+    (26) expression -> expression . OROR expression
+    (27) expression -> expression . PLUS expression
+    (28) expression -> expression . MINUS expression
+    (29) expression -> expression . TIMES expression
+    (30) expression -> expression . DIVIDE expression
+    (31) expression -> expression . EXP expression
+
+    RBRACKET        reduce using rule 8 (opt_expression -> expression .)
+    LBRACKET        shift and go to state 18
+    LESSTHAN        shift and go to state 19
+    GREATERTHAN     shift and go to state 20
+    EQUALTO         shift and go to state 21
+    OROR            shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 67
+
+    (10) expression -> expression LBRACKET opt_expression COLON opt_expression . RBRACKET
+
+    RBRACKET        shift and go to state 73
+
+
+state 68
+
+    (15) statement -> IF LPAREN expression RPAREN statement .
+    (16) statement -> IF LPAREN expression RPAREN statement . ELSE statement
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    NAME            reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    LBRACE          reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    IF              reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    WHILE           reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    PRINT           reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    STRING          reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    LBRACKET        reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    READINT         reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    MINUS           reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    LPAREN          reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    NUMBER          reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    $end            reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    RBRACE          reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .)
+    ELSE            shift and go to state 74
+
+  ! ELSE            [ reduce using rule 15 (statement -> IF LPAREN expression RPAREN statement .) ]
+
+
+state 69
+
+    (17) statement -> IF LPAREN expression RPAREN block .
+    (18) statement -> IF LPAREN expression RPAREN block . ELSE block
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    NAME            reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    LBRACE          reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    IF              reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    WHILE           reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    PRINT           reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    STRING          reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    LBRACKET        reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    READINT         reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    MINUS           reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    LPAREN          reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    NUMBER          reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    $end            reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    RBRACE          reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .)
+    ELSE            shift and go to state 75
+
+  ! ELSE            [ reduce using rule 17 (statement -> IF LPAREN expression RPAREN block .) ]
+
+
+state 70
+
+    (12) statement -> LBRACE . statement_list RBRACE
+    (13) block -> LBRACE . statement_list RBRACE
+    (20) statement_list -> . statement statement_list
+    (21) statement_list -> . statement
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    statement_list                 shift and go to state 76
+    statement                      shift and go to state 2
+    expression                     shift and go to state 4
+
+state 71
+
+    (19) statement -> WHILE LPAREN expression RPAREN statement .
+
+    NAME            reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    LBRACE          reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    IF              reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    WHILE           reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    PRINT           reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    STRING          reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    LBRACKET        reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    READINT         reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    MINUS           reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    LPAREN          reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    NUMBER          reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    $end            reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    RBRACE          reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+    ELSE            reduce using rule 19 (statement -> WHILE LPAREN expression RPAREN statement .)
+
+
+state 72
+
+    (22) statement -> PRINT LPAREN expression RPAREN SEMICOLON .
+
+    NAME            reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    LBRACE          reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    IF              reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    WHILE           reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    PRINT           reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    STRING          reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    LBRACKET        reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    READINT         reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    MINUS           reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    LPAREN          reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    NUMBER          reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    $end            reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    ELSE            reduce using rule 22 (statement -> PRINT LPAREN expression RPAREN SEMICOLON .)
+
+
+state 73
+
+    (10) expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .
+
+    SEMICOLON       reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    LBRACKET        reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    LESSTHAN        reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    GREATERTHAN     reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    EQUALTO         reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    OROR            reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    PLUS            reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    MINUS           reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    TIMES           reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    DIVIDE          reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    EXP             reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    RPAREN          reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    COMMA           reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    RBRACKET        reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+    COLON           reduce using rule 10 (expression -> expression LBRACKET opt_expression COLON opt_expression RBRACKET .)
+
+
+state 74
+
+    (16) statement -> IF LPAREN expression RPAREN statement ELSE . statement
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    expression                     shift and go to state 4
+    statement                      shift and go to state 77
+
+state 75
+
+    (18) statement -> IF LPAREN expression RPAREN block ELSE . block
+    (13) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 79
+
+    block                          shift and go to state 78
+
+state 76
+
+    (12) statement -> LBRACE statement_list . RBRACE
+    (13) block -> LBRACE statement_list . RBRACE
+
+    RBRACE          shift and go to state 80
+
+
+state 77
+
+    (16) statement -> IF LPAREN expression RPAREN statement ELSE statement .
+
+    NAME            reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    LBRACE          reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    IF              reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    WHILE           reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    PRINT           reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    STRING          reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    LBRACKET        reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    READINT         reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    MINUS           reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    LPAREN          reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    NUMBER          reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    $end            reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    RBRACE          reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+    ELSE            reduce using rule 16 (statement -> IF LPAREN expression RPAREN statement ELSE statement .)
+
+
+state 78
+
+    (18) statement -> IF LPAREN expression RPAREN block ELSE block .
+
+    NAME            reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    LBRACE          reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    IF              reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    WHILE           reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    PRINT           reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    STRING          reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    LBRACKET        reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    READINT         reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    MINUS           reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    LPAREN          reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    NUMBER          reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    $end            reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    RBRACE          reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+    ELSE            reduce using rule 18 (statement -> IF LPAREN expression RPAREN block ELSE block .)
+
+
+state 79
+
+    (13) block -> LBRACE . statement_list RBRACE
+    (20) statement_list -> . statement statement_list
+    (21) statement_list -> . statement
+    (1) statement -> . NAME EQUALS expression SEMICOLON
+    (11) statement -> . expression SEMICOLON
+    (12) statement -> . LBRACE statement_list RBRACE
+    (15) statement -> . IF LPAREN expression RPAREN statement
+    (16) statement -> . IF LPAREN expression RPAREN statement ELSE statement
+    (17) statement -> . IF LPAREN expression RPAREN block
+    (18) statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) statement -> . WHILE LPAREN expression RPAREN statement
+    (22) statement -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (2) expression -> . STRING
+    (3) expression -> . LBRACKET list_items RBRACKET
+    (6) expression -> . expression LBRACKET expression RBRACKET
+    (10) expression -> . expression LBRACKET opt_expression COLON opt_expression RBRACKET
+    (14) expression -> . READINT LPAREN RPAREN
+    (23) expression -> . expression LESSTHAN expression
+    (24) expression -> . expression GREATERTHAN expression
+    (25) expression -> . expression EQUALTO expression
+    (26) expression -> . expression OROR expression
+    (27) expression -> . expression PLUS expression
+    (28) expression -> . expression MINUS expression
+    (29) expression -> . expression TIMES expression
+    (30) expression -> . expression DIVIDE expression
+    (31) expression -> . expression EXP expression
+    (32) expression -> . MINUS expression
+    (33) expression -> . LPAREN expression RPAREN
+    (34) expression -> . NUMBER
+    (35) expression -> . NAME
+
+    NAME            shift and go to state 3
+    LBRACE          shift and go to state 5
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    PRINT           shift and go to state 9
+    STRING          shift and go to state 10
+    LBRACKET        shift and go to state 11
+    READINT         shift and go to state 12
+    MINUS           shift and go to state 13
+    LPAREN          shift and go to state 7
+    NUMBER          shift and go to state 14
+
+    statement_list                 shift and go to state 81
+    statement                      shift and go to state 2
+    expression                     shift and go to state 4
+
+state 80
+
+    (12) statement -> LBRACE statement_list RBRACE .
+    (13) block -> LBRACE statement_list RBRACE .
+
+  ! reduce/reduce conflict for ELSE resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for NAME resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for LBRACE resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for IF resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for WHILE resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for PRINT resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for STRING resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for LBRACKET resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for READINT resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for MINUS resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for LPAREN resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for NUMBER resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for $end resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+  ! reduce/reduce conflict for RBRACE resolved using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    ELSE            reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    NAME            reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    LBRACE          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    IF              reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    WHILE           reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    PRINT           reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    STRING          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    LBRACKET        reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    READINT         reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    MINUS           reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    LPAREN          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    NUMBER          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    $end            reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 12 (statement -> LBRACE statement_list RBRACE .)
+
+  ! ELSE            [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! NAME            [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! LBRACE          [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! IF              [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! WHILE           [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! PRINT           [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! STRING          [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! LBRACKET        [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! READINT         [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! MINUS           [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! LPAREN          [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! NUMBER          [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! $end            [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+  ! RBRACE          [ reduce using rule 13 (block -> LBRACE statement_list RBRACE .) ]
+
+
+state 81
+
+    (13) block -> LBRACE statement_list . RBRACE
+
+    RBRACE          shift and go to state 82
+
+
+state 82
+
+    (13) block -> LBRACE statement_list RBRACE .
+
+    NAME            reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    LBRACE          reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    IF              reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    WHILE           reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    PRINT           reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    STRING          reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    LBRACKET        reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    READINT         reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    MINUS           reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    LPAREN          reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    NUMBER          reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    $end            reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+    ELSE            reduce using rule 13 (block -> LBRACE statement_list RBRACE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ELSE in state 68 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 69 resolved as shift
+WARNING: reduce/reduce conflict in state 80 resolved using rule (statement -> LBRACE statement_list RBRACE)
+WARNING: rejected rule (block -> LBRACE statement_list RBRACE) in state 80
